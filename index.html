@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Cek Khodam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             background-color: #f0f8ff;
@@ -25,12 +26,14 @@
 
         h1 {
             color: #333333;
+            font-size: 24px;
         }
 
         label {
             display: block;
             margin: 10px 0;
             color: #555555;
+            font-size: 18px;
         }
 
         input[type="text"] {
@@ -39,6 +42,7 @@
             margin-bottom: 10px;
             border: 1px solid #dddddd;
             border-radius: 5px;
+            font-size: 16px;
         }
 
         button {
@@ -49,6 +53,7 @@
             border-radius: 5px;
             cursor: pointer;
             margin: 5px;
+            font-size: 16px;
         }
 
         button:disabled {
@@ -78,20 +83,26 @@
         }
 
         @media (max-width: 600px) {
+            body {
+                height: auto;
+                padding: 20px;
+            }
+
             .container {
                 padding: 15px;
+                width: 100%;
             }
 
             h1 {
-                font-size: 24px;
+                font-size: 22px;
             }
 
-            input[type="text"], button {
+            label, input[type="text"], button, #output, #note, #copyright {
                 font-size: 16px;
             }
 
-            #output, #note {
-                font-size: 16px;
+            button {
+                padding: 8px 16px;
             }
         }
     </style>
@@ -138,25 +149,7 @@
                 'Beruang Kutub', 'Rusa Hutan', 'Banteng Besar', 'Kelinci Hutan', 'Kura-kura Laut',
                 'Elang Merah', 'Burung Hantu Putih', 'Burung Gagak Hitam', 'Katak Biru', 'Kucing Hitam',
                 'Harimau Hitam', 'Anjing Laut', 'Babi Hutan', 'Kuda Laut Besar', 'Ikan Hiu Putih',
-                'Burung Elang Putih', 'Kucing Hutan', 'Kelinci Gunung', 'Macan Loreng', 'Ular Emas',
-                'Kura-kura Hitam', 'Burung Kenari', 'Elang Perak', 'Banteng Emas', 'Harimau Kuning',
-                'Burung Pipit', 'Kelinci Biru', 'Rusa Hitam', 'Burung Merak', 'Burung Cendrawasih',
-                'Macan Putih', 'Kura-kura Merah', 'Burung Jalak Emas', 'Harimau Emas', 'Serigala Hitam',
-                'Elang Putih', 'Macan Merah', 'Burung Gagak Putih', 'Kuda Putih', 'Singa Perak',
-                'Kelinci Hijau', 'Burung Hantu Emas', 'Ular Perak', 'Buaya Hitam', 'Rusa Putih',
-                'Macan Hijau', 'Elang Biru', 'Harimau Perak', 'Kura-kura Perak', 'Banteng Hijau',
-                'Burung Jalak Hitam', 'Serigala Perak', 'Kelinci Perak', 'Rusa Merah', 'Kuda Perak',
-                'Harimau Hitam', 'Macan Hitam', 'Elang Merah', 'Kelinci Merah', 'Rusa Biru',
-                'Kuda Biru', 'Burung Hantu Hitam', 'Banteng Putih', 'Kelinci Hitam', 'Serigala Biru',
-                'Burung Elang Emas', 'Kuda Hijau', 'Singa Hijau', 'Ular Biru', 'Burung Kenari Merah',
-                'Harimau Putih', 'Macan Kuning', 'Elang Merah', 'Kelinci Putih', 'Burung Jalak Putih',
-                'Ular Merah', 'Buaya Merah', 'Serigala Emas', 'Rusa Hijau', 'Kuda Kuning',
-                'Burung Merak', 'Harimau Merah', 'Kura-kura Emas', 'Singa Emas', 'Burung Jalak Merah',
-                'Elang Hijau', 'Macan Kuning', 'Kuda Merah', 'Rusa Perak', 'Kelinci Kuning',
-                'Serigala Kuning', 'Ular Putih', 'Buaya Putih', 'Harimau Perak', 'Kuda Putih',
-                'Burung Elang Merah', 'Rusa Emas', 'Kelinci Merah', 'Banteng Merah', 'Elang Putih',
-                'Singa Biru', 'Burung Jalak Hijau', 'Kuda Hijau', 'Harimau Biru', 'Serigala Merah',
-                'Buaya Hijau'
+                'Burung Elang Putih', 'Kucing Hutan', 'Kelinci Gunung'
             ];
 
             const randomIndex = Math.floor(Math.random() * khodamNames.length);
