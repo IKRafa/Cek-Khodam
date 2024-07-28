@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cek Khodam</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #555555;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: calc(100% - 24px);
+            margin-bottom: 10px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:disabled {
+            background-color: #888888;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #45a049;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333333;
+        }
+
+        #note {
+            margin-top: 10px;
+            font-size: 14px;
+            color: rgba(128, 128, 128, 0.7);
+        }
+
+        #copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888888;
+        }
+    </style>
+    <script>
+        function generateKhodamName() {
+            const khodamNames = [
+                'Sampo Berjalan', 'Kunti Bogel', 'Harimau Raksasa', 'Burung Garuda', 'Elang Hitam',
+                'Kura-kura Raksasa', 'Banteng Besar', 'Rusa Merah', 'Kuda Terbang', 'Singa Merah',
+                'Beruang Merah', 'Rusa Besar', 'Kelinci Putih', 'Kura-kura Hijau', 'Elang Putih',
+                'Burung Jalak', 'Kelelawar Putih', 'Ular Kecil', 'Buaya Kecil', 'Serigala Merah',
+                'Macan Dahan', 'Badak Putih', 'Rusa Hutan', 'Kelinci Merah', 'Kura-kura Kecil',
+                'Elang Emas', 'Burung Merpati Putih', 'Kelelawar Hitam', 'Ular Sanca', 'Buaya Sungai',
+                'Serigala Putih', 'Macan Jawa', 'Badak Jawa', 'Rusa Jawa', 'Banteng Putih',
+                'Kelinci Anggora', 'Kura-kura Emas', 'Elang Jawa', 'Burung Merpati Hitam', 'Kelelawar Besar',
+                'Ular Piton', 'Buaya Rawa', 'Serigala Abu-abu', 'Macan Hitam', 'Harimau Putih',
+                'Kuda Laut', 'Gurita Raksasa', 'Kuda Nil Putih', 'Jerapah Putih', 'Zebra Hitam',
+                'Singa Putih', 'Beruang Kutub', 'Rusa Hutan', 'Banteng Besar', 'Kelinci Hutan',
+                'Kura-kura Laut', 'Elang Merah', 'Burung Hantu Putih', 'Burung Gagak Hitam', 'Katak Biru',
+                'Kucing Hitam', 'Harimau Hitam', 'Anjing Laut', 'Babi Hutan', 'Kuda Laut Besar',
+                'Ikan Hiu Putih', 'Burung Elang Putih', 'Kucing Hutan', 'Kelinci Gunung', 'Harimau Raksasa',
+                'Burung Garuda', 'Elang Hitam', 'Kura-kura Raksasa', 'Banteng Besar', 'Rusa Merah',
+                'Kuda Terbang Hitam', 'Singa Merah', 'Beruang Merah', 'Rusa Besar', 'Kelinci Putih',
+                'Kura-kura Hijau', 'Elang Putih', 'Burung Jalak', 'Kelelawar Putih', 'Ular Kecil',
+                'Buaya Kecil', 'Serigala Merah', 'Macan Dahan', 'Badak Putih', 'Rusa Hutan',
+                'Kelinci Merah', 'Kura-kura Kecil', 'Elang Emas', 'Burung Merpati Putih', 'Kelelawar Hitam',
+                'Ular Sanca', 'Buaya Sungai', 'Serigala Putih', 'Macan Jawa', 'Badak Jawa',
+                'Rusa Jawa', 'Banteng Putih', 'Kelinci Anggora', 'Kura-kura Emas', 'Elang Jawa',
+                'Burung Merpati Hitam', 'Kelelawar Besar', 'Ular Piton', 'Buaya Rawa', 'Serigala Abu-abu',
+                'Macan Hitam', 'Harimau Putih', 'Kuda Laut', 'Gurita Raksasa', 'Kuda Nil Putih',
+                'Jerapah Putih', 'Zebra Hitam', 'Singa Putih', 'Beruang Kutub', 'Rusa Hutan',
+                'Banteng Besar', 'Kelinci Hutan', 'Kura-kura Laut', 'Elang Merah', 'Burung Hantu Putih',
+                'Burung Gagak Hitam', 'Katak Biru', 'Kucing Hitam', 'Harimau Hitam', 'Anjing Laut',
+                'Babi Hutan', 'Kuda Laut Besar', 'Ikan Hiu Putih', 'Burung Elang Putih', 'Kucing Hutan',
+                'Kelinci Gunung', 'Harimau Raksasa', 'Burung Garuda', 'Elang Hitam', 'Kura-kura Raksasa',
+                'Banteng Besar', 'Rusa Merah', 'Kuda Terbang Hitam', 'Singa Merah', 'Beruang Merah',
+                'Rusa Besar', 'Kelinci Putih', 'Kura-kura Hijau', 'Elang Putih', 'Burung Jalak',
+                'Kelelawar Putih', 'Ular Kecil', 'Buaya Kecil', 'Serigala Merah', 'Macan Dahan',
+                'Badak Putih', 'Rusa Hutan', 'Kelinci Merah', 'Kura-kura Kecil', 'Elang Emas',
+                'Burung Merpati Putih', 'Kelelawar Hitam', 'Ular Sanca', 'Buaya Sungai', 'Serigala Putih',
+                'Macan Jawa', 'Badak Jawa', 'Rusa Jawa', 'Banteng Putih', 'Kelinci Anggora',
+                'Kura-kura Emas', 'Elang Jawa', 'Burung Merpati Hitam', 'Kelelawar Besar', 'Ular Piton',
+                'Buaya Rawa', 'Serigala Abu-abu', 'Macan Hitam', 'Harimau Putih', 'Kuda Laut',
+                'Gurita Raksasa', 'Kuda Nil Putih', 'Jerapah Putih', 'Zebra Hitam', 'Singa Putih',
+                'Beruang Kutub', 'Rusa Hutan', 'Banteng Besar', 'Kelinci Hutan', 'Kura-kura Laut',
+                'Elang Merah', 'Burung Hantu Putih', 'Burung Gagak Hitam', 'Katak Biru', 'Kucing Hitam',
+                'Harimau Hitam', 'Anjing Laut', 'Babi Hutan', 'Kuda Laut Besar', 'Ikan Hiu Putih',
+                'Burung Elang Putih', 'Kucing Hutan', 'Kelinci Gunung', 'Macan Loreng', 'Ular Emas',
+                'Kura-kura Hitam', 'Burung Kenari', 'Elang Perak', 'Banteng Emas', 'Harimau Kuning',
+                'Burung Pipit', 'Kelinci Biru', 'Rusa Hitam', 'Kuda Perang', 'Ular Hijau',
+                'Buaya Emas', 'Macan Biru', 'Harimau Hijau', 'Beruang Perak', 'Singa Hitam',
+                'Kuda Hitam', 'Elang Kuning', 'Burung Elang Hitam', 'Kelinci Emas', 'Rusa Kuning',
+                'Macan Putih', 'Kura-kura Merah', 'Burung Jalak Emas', 'Harimau Emas', 'Serigala Hitam',
+                'Elang Putih', 'Macan Merah', 'Burung Gagak Putih', 'Kuda Putih', 'Singa Perak',
+                'Kelinci Hijau', 'Burung Hantu Emas', 'Ular Perak', 'Buaya Hitam', 'Rusa Putih',
+                'Macan Hijau', 'Elang Biru', 'Harimau Perak', 'Kura-kura Perak', 'Banteng Hijau',
+                'Burung Jalak Hitam', 'Serigala Perak', 'Kelinci Perak', 'Rusa Merah', 'Kuda Perak',
+                'Harimau Hitam', 'Macan Hitam', 'Elang Merah', 'Kelinci Merah', 'Rusa Biru',
+                'Kuda Biru', 'Burung Hantu Hitam', 'Banteng Putih', 'Kelinci Hitam', 'Serigala Biru',
+                'Burung Elang Emas', 'Kuda Hijau', 'Singa Hijau', 'Ular Biru', 'Burung Kenari Merah',
+                'Harimau Putih', 'Macan Kuning', 'Elang Merah', 'Kelinci Putih', 'Burung Jalak Putih',
+                'Ular Merah', 'Buaya Merah', 'Serigala Emas', 'Rusa Hijau', 'Kuda Kuning',
+                'Burung Merak', 'Harimau Merah', 'Kura-kura Emas', 'Singa Emas', 'Burung Jalak Merah',
+                'Elang Hijau', 'Macan Kuning', 'Kuda Merah', 'Rusa Perak', 'Kelinci Kuning',
+                'Serigala Kuning', 'Ular Putih', 'Buaya Putih', 'Harimau Perak', 'Kuda Putih',
+                'Burung Elang Merah', 'Rusa Emas', 'Kelinci Merah', 'Banteng Merah', 'Elang Putih',
+                'Singa Biru', 'Burung Jalak Hijau', 'Kuda Hijau', 'Harimau Biru', 'Serigala Merah',
+                'Buaya Hijau'
+            ];
+
+            const randomIndex = Math.floor(Math.random() * khodamNames.length);
+            const khodamName = khodamNames[randomIndex];
+
+            document.getElementById('output').textContent = khodamName;
+            document.querySelector('button[type="submit"]').disabled = true;
+            document.getElementById('name').disabled = true;
+        }
+
+        function enableButton() {
+            document.querySelector('button[type="submit"]').disabled = false;
+            document.getElementById('name').disabled = false;
+        }
+
+        function resetForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('output').textContent = '';
+            enableButton();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cek Khodam</h1>
+        <form onsubmit="event.preventDefault(); generateKhodamName();">
+            <label for="name">Masukkan Nama Anda:</label>
+            <input type="text" id="name" name="name" oninput="enableButton()" required>
+            <button type="submit" disabled>Cek Khodam</button>
+            <button type="button" onclick="resetForm()">Reset</button>
+        </form>
+        <p id="note">Jangan anggap serius, web ini hanya untuk bercandaan</p>
+        <p id="output"></p>
+        <p id="copyright">Copyright by Rafa</p>
+    </div>
+</body>
+</html>
