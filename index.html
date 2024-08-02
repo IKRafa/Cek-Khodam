@@ -101,47 +101,7 @@
     <script>
         function generateKhodamName() {
             const khodamNames = [
-                'Sampo Berjalan', 'Kunti Bogel', 'Harimau Raksasa', 'Burung Garuda', 'Elang Hitam',
-                'Kura-kura Raksasa', 'Banteng Besar', 'Rusa Merah', 'Kuda Terbang', 'Singa Merah',
-                'Beruang Merah', 'Rusa Besar', 'Kelinci Putih', 'Kura-kura Hijau', 'Elang Putih',
-                'Burung Jalak', 'Kelelawar Putih', 'Ular Kecil', 'Buaya Kecil', 'Serigala Merah',
-                'Macan Dahan', 'Badak Putih', 'Rusa Hutan', 'Kelinci Merah', 'Kura-kura Kecil',
-                'Elang Emas', 'Burung Merpati Putih', 'Kelelawar Hitam', 'Ular Sanca', 'Buaya Sungai',
-                'Serigala Putih', 'Macan Jawa', 'Badak Jawa', 'Rusa Jawa', 'Banteng Putih',
-                'Kelinci Anggora', 'Kura-kura Emas', 'Elang Jawa', 'Burung Merpati Hitam', 'Kelelawar Besar',
-                'Ular Piton', 'Buaya Rawa', 'Serigala Abu-abu', 'Macan Hitam', 'Harimau Putih',
-                'Kuda Laut', 'Gurita Raksasa', 'Kuda Nil Putih', 'Jerapah Putih', 'Zebra Hitam',
-                'Singa Putih', 'Beruang Kutub', 'Rusa Hutan', 'Banteng Besar', 'Kelinci Hutan',
-                'Kura-kura Laut', 'Elang Merah', 'Burung Hantu Putih', 'Burung Gagak Hitam', 'Katak Biru',
-                'Kucing Hitam', 'Harimau Hitam', 'Anjing Laut', 'Babi Hutan', 'Kuda Laut Besar',
-                'Ikan Hiu Putih', 'Burung Elang Putih', 'Kucing Hutan', 'Kelinci Gunung', 'Harimau Raksasa',
-                'Burung Garuda', 'Elang Hitam', 'Kura-kura Raksasa', 'Banteng Besar', 'Rusa Merah',
-                'Kuda Terbang Hitam', 'Singa Merah', 'Beruang Merah', 'Rusa Besar', 'Kelinci Putih',
-                'Kura-kura Hijau', 'Elang Putih', 'Burung Jalak', 'Kelelawar Putih', 'Ular Kecil',
-                'Buaya Kecil', 'Serigala Merah', 'Macan Dahan', 'Badak Putih', 'Rusa Hutan',
-                'Kelinci Merah', 'Kura-kura Kecil', 'Elang Emas', 'Burung Merpati Putih', 'Kelelawar Hitam',
-                'Ular Sanca', 'Buaya Sungai', 'Serigala Putih', 'Macan Jawa', 'Badak Jawa',
-                'Rusa Jawa', 'Banteng Putih', 'Kelinci Anggora', 'Kura-kura Emas', 'Elang Jawa',
-                'Burung Merpati Hitam', 'Kelelawar Besar', 'Ular Piton', 'Buaya Rawa', 'Serigala Abu-abu',
-                'Macan Hitam', 'Harimau Putih', 'Kuda Laut', 'Gurita Raksasa', 'Kuda Nil Putih',
-                'Jerapah Putih', 'Zebra Hitam', 'Singa Putih', 'Beruang Kutub', 'Rusa Hutan',
-                'Banteng Besar', 'Kelinci Hutan', 'Kura-kura Laut', 'Elang Merah', 'Burung Hantu Putih',
-                'Burung Gagak Hitam', 'Katak Biru', 'Kucing Hitam', 'Harimau Hitam', 'Anjing Laut',
-                'Babi Hutan', 'Kuda Laut Besar', 'Ikan Hiu Putih', 'Burung Elang Putih', 'Kucing Hutan',
-                'Kelinci Gunung', 'Harimau Raksasa', 'Burung Garuda', 'Elang Hitam', 'Kura-kura Raksasa',
-                'Banteng Besar', 'Rusa Merah', 'Kuda Terbang Hitam', 'Singa Merah', 'Beruang Merah',
-                'Rusa Besar', 'Kelinci Putih', 'Kura-kura Hijau', 'Elang Putih', 'Burung Jalak',
-                'Kelelawar Putih', 'Ular Kecil', 'Buaya Kecil', 'Serigala Merah', 'Macan Dahan',
-                'Badak Putih', 'Rusa Hutan', 'Kelinci Merah', 'Kura-kura Kecil', 'Elang Emas',
-                'Burung Merpati Putih', 'Kelelawar Hitam', 'Ular Sanca', 'Buaya Sungai', 'Serigala Putih',
-                'Macan Jawa', 'Badak Jawa', 'Rusa Jawa', 'Banteng Putih', 'Kelinci Anggora',
-                'Kura-kura Emas', 'Elang Jawa', 'Burung Merpati Hitam', 'Kelelawar Besar', 'Ular Piton',
-                'Buaya Rawa', 'Serigala Abu-abu', 'Macan Hitam', 'Harimau Putih', 'Kuda Laut',
-                'Gurita Raksasa', 'Kuda Nil Putih', 'Jerapah Putih', 'Zebra Hitam', 'Singa Putih',
-                'Beruang Kutub', 'Rusa Hutan', 'Banteng Besar', 'Kelinci Hutan', 'Kura-kura Laut',
-                'Elang Merah', 'Burung Hantu Putih', 'Burung Gagak Hitam', 'Katak Biru', 'Kucing Hitam',
-                'Harimau Hitam', 'Anjing Laut', 'Babi Hutan', 'Kuda Laut Besar', 'Ikan Hiu Putih',
-                'Burung Elang Putih', 'Kucing Hutan', 'Kelinci Gunung'
+                'Yoga Kontol', 'Yoga Kontol'
             ];
 
             const randomIndex = Math.floor(Math.random() * khodamNames.length);
